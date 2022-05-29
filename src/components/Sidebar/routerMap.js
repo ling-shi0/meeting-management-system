@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: wangXiaoMing
  * @Date: 2022-05-02 13:41:05
- * @LastEditTime: 2022-05-02 17:14:20
+ * @LastEditTime: 2022-05-29 16:40:49
  * @LastEditors: wangXiaoMing
  */
 import React from "react";
@@ -16,7 +16,7 @@ export const routerMap = [
     children: [
       {
         key: 1,
-        label: <Link to='/home/user/auth'>用户列表</Link>,
+        label: <Link to='/home/user/auth'>角色配置</Link>,
         icon: <IdcardOutlined />
       },
       {

@@ -2,37 +2,65 @@
  * @Description: 
  * @Author: wangXiaoMing
  * @Date: 2022-05-29 13:38:29
- * @LastEditTime: 2022-05-29 13:39:04
+ * @LastEditTime: 2022-05-29 16:37:52
  * @LastEditors: wangXiaoMing
  */
-const Home = () => {
-  return <div>这是home</div>;
-};
+import React from "react";
+import { useRoutes, Outlet } from "react-router-dom";
+import { default as Pages } from "../pages/index.jsx";
+import { Login } from "../pages/login.jsx";
+import { Page404 } from '../pages/page404';
 
-const Group = () => {
-  return <div>这是Group</div>;
-};
-
-const About = () => {
-  return <div>这是about</div>;
-};
-
-//编写基本的路由路线，path为路径，component为对应渲染的组件，exact属性决定是否精准匹配
 const routes = [
   {
     path: "/",
-    component: Home,
-    exact: true,
+    element: <Login/>
   },
   {
-    path: "/group",
-    component: Group,
+    path: "/home",
+    element: <Pages/>,
+    children: [
+      {
+        path: 'meeting',
+        element: <></>
+      },
+      {
+        path: 'analy',
+        element: <></>
+      },
+      {
+        path: 'me',
+        element: <></>
+      },
+      {
+        path: 'user',
+        element: <Outlet/>,
+        children: [
+          {
+            path: 'list',
+            element: <></>
+          },
+          {
+            path: 'auth',
+            element: <div>112324</div>
+          }
+        ]
+      },
+      {
+        path: '*',
+        element: <Page404/>
+      }
+    ]
   },
   {
-    path: "/about",
-    component: About,
+    path: "/login",
+    element: <Login/>,
   },
 ];
 
+function useRouter() {
+  return <>{useRoutes(routes)}</>
+}
+
 //将路由表数组导出
-export default routes;
+export default useRouter;
