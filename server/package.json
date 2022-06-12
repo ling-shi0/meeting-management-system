@@ -1,0 +1,13 @@
+{
+  "name": "koa-server",
+  "version": "0.1.0",
+  "author": "LingShi",
+  "private": true,
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "koa-json-error": "^3.1.2",
+    "koa-parameter": "^3.0.1",
+    "koa-router": "^10.1.1"
+  }
+}
